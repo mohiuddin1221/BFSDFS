@@ -1,0 +1,34 @@
+total_vertex  = int(input("Enter number of vertex : "))
+graph = {}
+flag = True
+visited = []
+queue = []
+def BFS(graph, temp):
+    queue.append(temp)
+    visited.append(temp)
+    
+    while queue:
+       node =  queue.pop(0)
+       print(node, end =' ')
+       
+       for child in graph(node):
+           if child not in visited:
+            queue.append(child)
+            visited.append(child)
+    
+for i in range(total_vertex):
+    vertex = input("Enter vertex : ")
+    graph[vertex] = list()
+    
+    while flag:
+       child =  input(f'Enter child of vertex {vertex} (-1 for exit): ')
+       if child != "-1":
+           graph[vertex].append(child)      
+       else :
+           flag = False     
+    flag = True
+    
+  
+print(graph)
+
+BFS(graph,'A')
